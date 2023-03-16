@@ -3,6 +3,7 @@
 [![Latest version](https://img.shields.io/npm/v/intl-datetimeformat-options)
  ![Dependency status](https://img.shields.io/librariesio/release/npm/intl-datetimeformat-options)
 ](https://www.npmjs.com/package/intl-datetimeformat-options)
+[![Coverage](https://codecov.io/gh/prantlf/intl-datetimeformat-options/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/intl-datetimeformat-options)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f1034029c0747a980cd49f64f16338b)](https://www.codacy.com/app/prantlf/intl-datetimeformat-options?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prantlf/intl-datetimeformat-options&amp;utm_campaign=Badge_Grade)
 
 Provides localized date/time format patterns for styles `full`, `long`, `medium` and `short`, using [`Intl.DateTimeFormat`]. For example:

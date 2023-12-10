@@ -1,6 +1,6 @@
 {
   "name": "intl-datetimeformat-options",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides localized date/time format patterns for styles full, long, medium and short, using Intl.DateTimeFormat.",
   "author": {
     "name": "Ferdinand Prantl",

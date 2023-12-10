@@ -22,7 +22,7 @@ const pattern = getDateTimeFormatPattern(formatter) // d.M.yy
 * ES, CJS and UMD module exports.
 * TypeScript type declarations (typings).
 * No other dependencies.
-* Tiny code base - 1.98 kB minified, 938 B gzipped, 801 B brotlied.
+* Tiny code base - 2.73 kB minified, 1.31 B gzipped, 1.16 B brotlied.
 * Resolves four date/time-formatting pattern styles (lengths) - `full`, `long`, `medium`, `short`.
 
 This library needs a working implementation of `Intl.DateTimeFormat`.If you are interested in a library, which does not need `Intl.DateTimeFormat` and uses [CLDR data] to be compliant with [Unicode LDML] too, have look at [datetime-locale-patterns].

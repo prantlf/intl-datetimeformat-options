@@ -51,9 +51,11 @@ for (const locale of availableLocales.availableLocales.modern) {
               actualPattern === difference[1] && text === difference[2]) {
               ok(true, 'skipped known difference')
             } else {
+              if (expectedPattern !== actualPattern) {
+                console.log(`"${testKey}": ["${expectedPattern}", "${actualPattern}", "${text}"]`)
+                console.log(formatter.formatToParts(date))
+              }
               strictEqual(expectedPattern, actualPattern, 'unexpected difference')
-              // console.log(`"${testKey}": ["${expectedPattern}", "${actualPattern}", "${text}"]`)
-              // console.log(formatter.formatToParts(date))
             }
           }
         } catch ({ message }) {

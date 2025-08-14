@@ -8,11 +8,10 @@
 
 Provides localized date/time format patterns for styles `full`, `long`, `medium` and `short`, using [`Intl.DateTimeFormat`]. For example:
 
-| Locale | Style | Pattern | Example |
-|:-------|:------|:--------|:--------|
-| en     | short | M/d/yy, h:mm a | 2/3/01, 4:05 AM |
+| Locale | Style | Pattern             | Example                     |
+|:-------|:------|:--------------------|:----------------------------|
+| en     | short | M/d/yy, h:mm a      | 2/3/01, 4:05 AM             |
 | cs     | long  | d. MMMM y H:mm:ss z | 3. února 1901 4:05:06 GMT+1 |
-
 
 ```js
 const formatter = new Intl.DateTimeFormat('cs', { dateStyle: 'short'})

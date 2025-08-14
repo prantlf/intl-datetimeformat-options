@@ -1,7 +1,7 @@
-import { readFile } from 'fs/promises'
-import { join } from 'path'
-import { fileURLToPath } from 'url'
-import availableLocales from 'cldr-core/availableLocales.json' assert { type: 'json' }
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import availableLocales from 'cldr-core/availableLocales.json' with { type: 'json' }
 
 const __dirname = fileURLToPath(import.meta.url)
 const nodeModulesDir  = join(__dirname, '../../node_modules')
@@ -9,9 +9,8 @@ const nodeModulesDir  = join(__dirname, '../../node_modules')
 const locales = availableLocales.availableLocales.full.sort((left, right) => {
   if (left.includes('-')) {
     return right.includes('-') ? left.localeCompare(right) : 1
-  } else {
-    return right.includes('-') ? -1 : left.localeCompare(right)
   }
+    return right.includes('-') ? -1 : left.localeCompare(right)
 })
 
 async function readCldrJsonFile(pkg, locale, file) {
@@ -52,8 +51,8 @@ for (const locale of locales) {
   }
   // console.log(locale, numberingSystem, localZero, numbers)
   if (zeroDigit) {
-    if (zeroDigit !== localZero && localZero !== 48) throw new Error(
-      `Numbering system "${numberingSystem}" uses zeros "${zeroDigit}" and "${localZero}".`)
+    if (zeroDigit !== localZero && zeroDigit !== 48 && zeroDigit !== 1632) throw new Error(
+      `Numbering system "${numberingSystem}" uses zeros "${zeroDigit}" != "${localZero}" and "${zeroDigit}" != 48 or 1632.`)
   } else {
     zeroDigits[numberingSystem] = localZero
   }

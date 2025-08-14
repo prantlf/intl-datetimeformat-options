@@ -1,4 +1,4 @@
-import { getDateTimeFormatPattern, PatternStyle } from '../lib/index.js'
+import { getDateTimeFormatPattern, type PatternStyle } from '../lib/index.js'
 
 declare type testCallback = () => void
 declare function test (label: string, callback: testCallback): void

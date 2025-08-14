@@ -1,9 +1,9 @@
 import tehanu from 'tehanu'
-import { fail, ok, strictEqual } from 'assert'
-import { readFileSync } from 'fs'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
-import availableLocales from 'cldr-core/availableLocales.json' assert { type: 'json' }
+import { fail, ok, strictEqual } from 'node:assert'
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import availableLocales from 'cldr-core/availableLocales.json' with { type: 'json' }
 import { getDateTimeFormatPattern } from '../lib/index.js'
 import getTestingDate from '../lib/testing-date.js'
 

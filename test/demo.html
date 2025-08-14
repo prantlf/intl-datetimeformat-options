@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intl.DateTimeFormat Demo</title>
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+  <style>
+    body {
+      margin: 16px;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    table {
+      border-spacing: 8px;
+    }
+    th {
+      text-align: start;
+    }
+    .two-columns {
+      display: flex;
+      gap: 16px;
+    }
+    .two-columns-form {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      align-content: start;
+      gap: 8px;
+    }
+    .two-columns-example {
+      display: grid;
+      grid-template-columns: max-content auto;
+      align-content: start;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    body:not(.show-options) .options {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Intl.DateTimeFormat Demo</h1>
+
+  <main>
+    <section id="settings">
+      <h2>Settings</h2>
+      <form id="settings-form" class="two-columns-form">
+        <label for="locale">Locale:</label>
+        <input id="locale">
+        <label for="timeZone">Time zone:</label>
+        <input id="timeZone">
+        <label style="grid-column: span 2;">
+          <input id="options" type="checkbox">
+          Show options
+        </label>
+      </form>
+      <p id="error"></p>
+    </section>
+
+    <section id="date-style">
+      <h2>Date</h2>
+      <table>
+        <thead>
+          <tr><th>Style</th><th>Example</th><th class="options">Options</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>full</td><td></td><td class="options"></td></tr>
+          <tr><td>long</td><td></td><td class="options"></td></tr>
+          <tr><td>medium</td><td></td><td class="options"></td></tr>
+          <tr><td>short</td><td></td><td class="options"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="time-style">
+      <h2>Time</h2>
+      <table>
+        <thead>
+          <tr><th>Style</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>full</td><td></td><td class="options"></td></tr>
+          <tr><td>long</td><td></td><td class="options"></td></tr>
+          <tr><td>medium</td><td></td><td class="options"></td></tr>
+          <tr><td>short</td><td></td><td class="options"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="datetime-style">
+      <h2>Date and Time</h2>
+      <table>
+        <thead>
+          <tr><th>Style</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>full</td><td></td><td class="options"></td></tr>
+          <tr><td>long</td><td></td><td class="options"></td></tr>
+          <tr><td>medium</td><td></td><td class="options"></td></tr>
+          <tr><td>short</td><td></td><td class="options"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="detailed-style">
+      <h2>Detailed Options</h2>
+      <form id="detailed-form" class="two-columns">
+        <div class="two-columns-form">
+          <label for="weekday">Weekday:</label>
+          <select id="weekday">
+            <option>not defined</option>
+            <option>long</option>
+            <option>short</option>
+            <option>narrow</option>
+          </select>
+          <label for="era">Era:</label>
+          <select id="era">
+            <option>not defined</option>
+            <option>long</option>
+            <option>short</option>
+            <option>narrow</option>
+          </select>
+          <label for="year">Year:</label>
+          <select id="year">
+            <option>not defined</option>
+            <option>numeric</option>
+            <option>2-digit</option>
+          </select>
+          <label for="month">Month:</label>
+          <select id="month">
+            <option>not defined</option>
+            <option>numeric</option>
+            <option>2-digit</option>
+            <option>long</option>
+            <option>short</option>
+            <option>narrow</option>
+          </select>
+          <label for="day">Day:</label>
+          <select id="day">
+            <option>not defined</option>
+            <option>numeric</option>
+            <option>2-digit</option>
+          </select>
+        </div>
+        <div class="two-columns-form">
+          <label for="hour">Hour:</label>
+          <select id="hour">
+            <option>not defined</option>
+            <option>numeric</option>
+            <option>2-digit</option>
+          </select>
+          <label for="minute">Minute:</label>
+          <select id="minute">
+            <option>not defined</option>
+            <option>numeric</option>
+            <option>2-digit</option>
+          </select>
+          <label for="second">Second:</label>
+          <select id="second">
+            <option>not defined</option>
+            <option>numeric</option>
+            <option>2-digit</option>
+          </select>
+          <label for="fractionalSecondDigits">Fractions of a second:</label>
+          <select id="fractionalSecondDigits">
+            <option>not defined</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+        <div class="two-columns-form">
+          <label for="dayPeriod">Day period:</label>
+          <select id="dayPeriod">
+            <option>not defined</option>
+            <option>long</option>
+            <option>short</option>
+            <option>narrow</option>
+          </select>
+          <label for="hour12">12-hour time:</label>
+          <select id="hour12">
+            <option>not defined</option>
+            <option>true</option>
+            <option>false</option>
+          </select>
+          <label for="hourCycle">Hour cycle:</label>
+          <select id="hourCycle">
+            <option>not defined</option>
+            <option>h11</option>
+            <option>h12</option>
+            <option>h23</option>
+            <option>h24</option>
+          </select>
+          <label for="timeZoneName">Time zone:</label>
+          <select id="timeZoneName">
+            <option>not defined</option>
+            <option>long</option>
+            <option>short</option>
+            <option>shortOffset</option>
+            <option>longOffset</option>
+            <option>shortGeneric</option>
+            <option>longGeneric</option>
+          </select>
+        </div>
+      </form>
+      <div class="two-columns-example">
+        <label for="weekday">Example:</label>
+        <div id="detailed-example"></div>
+        <label for="weekday" class="options">Options:</label>
+        <div id="detailed-options" class="options"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    addEventListener('DOMContentLoaded', () => {
+      let locale = getUrlParameterValue('locale') || navigator.language
+      const dateVal = getUrlParameterValue('date')
+      let date = dateVal ? new Date(dateVal) : new Date
+      let timeZone = getUrlParameterValue('timeZone') ||  new Intl.DateTimeFormat().resolvedOptions().timeZone
+
+      function getUrlParameterValue(name) {
+        const expression = new RegExp(`[?&]${name}(?:=([^&]*))?`, 'i')
+        const result = expression.exec(location.search)
+        return result && (result[1] != null ? decodeURIComponent(result[1]) : true) || undefined
+      }
+
+      function usesRTL() {
+        const languages = [
+          'ae',	/* Avestan */
+          'ar',   /* 'العربية', Arabic */
+          'arc',  /* Aramaic */
+          'bcc',  /* 'بلوچی مکرانی', Southern Balochi */
+          'bqi',  /* 'بختياري', Bakthiari */
+          'ckb',  /* 'Soranî / کوردی', Sorani */
+          'dv',   /* Dhivehi */
+          'fa',   /* 'فارسی', Persian */
+          'glk',  /* 'گیلکی', Gilaki */
+          'he',   /* 'עברית', Hebrew */
+          'ku',   /* 'Kurdî / كوردی', Kurdish */
+          'mzn',  /* 'مازِرونی', Mazanderani */
+          'nqo',  /* N'Ko */
+          'pnb',  /* 'پنجابی', Western Punjabi */
+          'prs',  /* 'دری', Darī */
+          'ps',   /* 'پښتو', Pashto, */
+          'sd',   /* 'سنڌي', Sindhi */
+          'ug',   /* 'Uyghurche / ئۇيغۇرچە', Uyghur */
+          'ur',    /* 'اردو', Urdu */
+          'yi'    /* 'ייִדיש', Yiddish */
+        ]
+        const language = locale.split('-')[0]
+        return languages.includes(language)
+      }
+
+      document.getElementById('settings-form').addEventListener('change', applySettings)
+      document.getElementById('locale').value = locale
+      document.getElementById('timeZone').value = timeZone
+
+      function applySettings() {
+        locale = document.getElementById('locale').value || undefined
+        timeZone = document.getElementById('timeZone').value || undefined
+        let message = ''
+        try {
+          formatStyle('date')
+          formatStyle('time')
+          formatStyle('datetime')
+          formatDetailed()
+        } catch (err) {
+          message = `Error: ${err.message}`
+        }
+        document.getElementById('error').textContent = message
+      }
+
+      function formatStyle(type) {
+        const section = document.getElementById(`${type}-style`)
+        const rows = [...section.querySelectorAll('tbody > tr')]
+        for (const row of rows) {
+          const [style, example, options] = [...row.querySelectorAll('td')]
+          const formatter = new Intl.DateTimeFormat(locale, type === 'datetime' 
+            ? { dateStyle: style.textContent, timeStyle: style.textContent, timeZone }
+            : { [`${type}Style`]: style.textContent, timeZone }
+          )
+          example.textContent = formatter.format(date)
+          options.textContent = formatOptions(formatter)
+        }
+      }
+
+      const form = document.getElementById('detailed-form')
+      form.addEventListener('change', formatDetailed)
+
+      function formatDetailed() {
+        const options = { timeZone }
+        const fields = [...form.querySelectorAll('[id]')]
+        for (const field of fields) {
+          let value = field.selectedOptions[0].textContent
+          if (value === 'not defined') continue
+          if (value === 'false') value = false
+          else if (value === 'true') value = true
+          options[field.id] = value
+        }
+        const formatter = new Intl.DateTimeFormat(locale, options)
+        document.getElementById('detailed-example').textContent = formatter.format(date)
+        document.getElementById('detailed-options').textContent = formatOptions(formatter)
+      }
+
+      function formatOptions(formatter) {
+        return JSON.stringify(formatter.resolvedOptions())
+          .replace('{"', '{ ')
+          .replace('"}', '\'}')
+          .replaceAll('":"', ': \'')
+          .replaceAll('":', ': ')
+          .replaceAll('","', '\', ')
+          .replaceAll(',"', ', ')
+      }
+
+      document.getElementById('options').addEventListener('change', e => {
+        const method = e.target.checked ? 'add' : 'remove'
+        document.body.classList[method]('show-options')
+      })
+
+      document.documentElement.lang = locale
+      if (usesRTL()) {
+        document.documentElement.dir = 'rtl'
+      }
+      applySettings()
+    })
+  </script>
+</body>
+</html>

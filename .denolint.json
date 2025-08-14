@@ -1,8 +1,0 @@
-{
-  "rules": {
-    "tags": ["recommended"]
-  },
-  "files": {
-    "exclude": ["index.min.js"]
-  }
-}
